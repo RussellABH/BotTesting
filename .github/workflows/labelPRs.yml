@@ -18,8 +18,7 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - name: Label issues
-        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
+      - name: Actions Ecosystem Add Labels
+        uses: actions-ecosystem/action-add-labels@v1.1.0
         with:
-          add-labels: "test label"
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          labels: test_label
