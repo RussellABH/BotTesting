@@ -22,3 +22,4 @@ jobs:
         uses: actions-ecosystem/action-add-labels@v1.1.0
         with:
           labels: test_label
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
