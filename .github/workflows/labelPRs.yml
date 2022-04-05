@@ -32,7 +32,7 @@ jobs:
         with:
           labels: |
             Changes Requested
-            Review Requested
+            Review Required
 
   changes_requested:
     if: |
@@ -53,7 +53,7 @@ jobs:
         with:
           labels: |
             Approved
-            Review Requested
+            Review Required
           
   review_requested:
     if: github.event.action == 'review_requested'
@@ -65,7 +65,7 @@ jobs:
       - name: Actions Ecosystem Add Labels
         uses: actions-ecosystem/action-add-labels@v1.1.0
         with:
-          labels: Review Requested
+          labels: Review Required
           github_token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Actions Ecosystem Remove Labels
         uses: actions-ecosystem/action-remove-labels@v1.3.0
