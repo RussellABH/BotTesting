@@ -30,7 +30,9 @@ jobs:
       - name: Actions Ecosystem Remove Labels
         uses: actions-ecosystem/action-remove-labels@v1.3.0
         with:
-          labels: Changes Requested
+          labels: |
+            Changes Requested
+            Review Requested
 
   changes_requested:
     if: |
@@ -46,6 +48,13 @@ jobs:
         with:
           labels: Changes Requested
           github_token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Actions Ecosystem Remove Labels
+        uses: actions-ecosystem/action-remove-labels@v1.3.0
+        with:
+          labels: |
+            Approved
+            Review Requested
+          
   review_requested:
     if: github.event.action == 'review_requested'
     runs-on: ubuntu-latest
@@ -58,3 +67,9 @@ jobs:
         with:
           labels: Review Requested
           github_token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Actions Ecosystem Remove Labels
+        uses: actions-ecosystem/action-remove-labels@v1.3.0
+        with:
+          labels: |
+            Changes Requested
+            Approved
