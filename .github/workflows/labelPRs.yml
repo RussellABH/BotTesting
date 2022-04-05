@@ -25,3 +25,17 @@ jobs:
         with:
           labels: Ready To Merge
           github_token: "${{ secrets.GITHUB_TOKEN }}"
+  changes_requested:
+    if: |
+      github.event.review.state == 'changes_requested' &&
+      github.event.sender.login == 'RussellTesting'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Actions Ecosystem Add Labels
+        uses: actions-ecosystem/action-add-labels@v1.1.0
+        with:
+          labels: Changes Requested
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
