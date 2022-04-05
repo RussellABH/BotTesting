@@ -25,6 +25,11 @@ jobs:
         with:
           labels: Ready To Merge
           github_token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Actions Ecosystem Remove Labels
+        uses: actions-ecosystem/action-remove-labels@v1.3.0
+        with:
+          labels: Changes Requested
+
   changes_requested:
     if: |
       github.event.review.state == 'changes_requested' &&
