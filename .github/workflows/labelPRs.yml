@@ -47,9 +47,7 @@ jobs:
           labels: Changes Requested
           github_token: "${{ secrets.GITHUB_TOKEN }}"
   review_requested:
-    if: |
-      github.event.action == 'review_requested' &&
-      github.event.review.author_association == 'OWNER'
+    if: github.event.action == 'review_requested'
     runs-on: ubuntu-latest
     permissions:
       contents: read
