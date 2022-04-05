@@ -11,6 +11,11 @@ on:
     types: [submitted]
 
 jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display author assoc
+        run: echo "Author is ${{github.event.author_association}}"
   approved:
     if: |
       github.event.review.state == 'approved' &&
