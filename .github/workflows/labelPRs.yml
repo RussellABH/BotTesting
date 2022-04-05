@@ -14,7 +14,7 @@ jobs:
   approved:
     if: |
       github.event.review.state == 'approved' &&
-      github.event.sender.login == 'RussellTesting'
+      github.event.author_association == 'OWNER'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -33,7 +33,7 @@ jobs:
   changes_requested:
     if: |
       github.event.review.state == 'changes_requested' &&
-      github.event.sender.login == 'RussellTesting'
+      github.event.author_association == 'OWNER'
     runs-on: ubuntu-latest
     permissions:
       contents: read
