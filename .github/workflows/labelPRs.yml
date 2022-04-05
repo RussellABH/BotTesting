@@ -52,7 +52,7 @@ jobs:
         uses: actions-ecosystem/action-remove-labels@v1.3.0
         with:
           labels: |
-            Approved
+            Ready To Merge
             Review Required
           
   review_requested:
@@ -72,4 +72,4 @@ jobs:
         with:
           labels: |
             Changes Requested
-            Approved
+            Ready To Merge
