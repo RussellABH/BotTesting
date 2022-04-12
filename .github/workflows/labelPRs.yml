@@ -8,7 +8,9 @@
 name: Labeler
 on:
   pull_request_review:
+    type: submitted
   pull_request:
+    type: review_requested
 
 jobs:
   approved:
