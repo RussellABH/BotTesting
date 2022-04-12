@@ -13,10 +13,7 @@ on:
     types: [review_requested]
 
 jobs:
-  approved:
-    if: |
-      github.event.review.state == 'approved' &&
-      github.event.review.author_association == 'OWNER'
+  LabelingJob:
     runs-on: ubuntu-latest
     permissions:
       contents: read
