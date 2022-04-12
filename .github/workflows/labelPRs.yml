@@ -22,39 +22,41 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - name: Actions Ecosystem Add Labels
+      - name: Add Label Ready to Merge
+        if: |
+          github.event.review.state == 'approved' &&
+          github.event.review.author_association == 'OWNER'
         uses: actions-ecosystem/action-add-labels@v1.1.0
         with:
           labels: Ready To Merge
           github_token: "${{ secrets.GITHUB_TOKEN }}"
-      - name: Actions Ecosystem Remove Labels
+      - name: Remove Labels for Ready to Merge 
+        if: |
+          github.event.review.state == 'approved' &&
+          github.event.review.author_association == 'OWNER'
         uses: actions-ecosystem/action-remove-labels@v1.3.0
         with:
           labels: |
             Changes Requested
             Review Required
-
-  changes_requested:
-    if: |
-      github.event.review.state == 'changes_requested' &&
-      github.event.review.author_association == 'OWNER'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
-    steps:
-      - name: Actions Ecosystem Add Labels
+      - name: Add Label Changes Requested
+        if: |
+          github.event.review.state == 'changes_requested' &&
+          github.event.review.author_association == 'OWNER'
         uses: actions-ecosystem/action-add-labels@v1.1.0
         with:
           labels: Changes Requested
           github_token: "${{ secrets.GITHUB_TOKEN }}"
-      - name: Actions Ecosystem Remove Labels
+      - name: Remove Labels for Changes Requested
+        if: |
+          github.event.review.state == 'changes_requested' &&
+          github.event.review.author_association == 'OWNER'
         uses: actions-ecosystem/action-remove-labels@v1.3.0
         with:
           labels: |
             Ready To Merge
             Review Required
-          
+
   review_requested:
     if: github.event.action == 'review_requested'
     runs-on: ubuntu-latest
