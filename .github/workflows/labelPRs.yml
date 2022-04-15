@@ -19,6 +19,10 @@ jobs:
       contents: read
       pull-requests: write
     steps:
+      - name: Add Size Label to PR
+        uses: WizardOhio24/label-pr-size-action@master
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Add Label Ready to Merge
         if: |
           github.event.review.state == 'approved' &&
