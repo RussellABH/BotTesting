@@ -20,7 +20,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Add Size Label to PR
-        uses: WizardOhio24/label-pr-size-action@master
+        uses: anushkrishnav/PR-Line-Labeler@v1.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Add Label Ready to Merge
