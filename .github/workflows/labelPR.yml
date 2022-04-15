@@ -21,6 +21,7 @@ jobs:
         uses: anushkrishnav/PR-Line-Labeler@v1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          repo: RussellABH/BotTesting
       - name: Add Label Ready to Merge
         if: |
           github.event.review.state == 'approved' &&
