@@ -22,7 +22,7 @@ jobs:
       - name: Add Size Label to PR
         uses: anushkrishnav/PR-Line-Labeler@v1.0
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Add Label Ready to Merge
         if: |
           github.event.review.state == 'approved' &&
