@@ -9,8 +9,6 @@ name: Labeler
 on:
   pull_request_review:
     types: [submitted]
-  pull_request:
-    types: [review_requested]
 
 jobs:
   LabelingJob:
@@ -57,22 +55,3 @@ jobs:
           labels: |
             Ready To Merge
             Review Required
-
-  review_requested:
-    if: github.event.action == 'review_requested'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
-    steps:
-      - name: Actions Ecosystem Add Labels
-        uses: actions-ecosystem/action-add-labels@v1.1.0
-        with:
-          labels: Review Required
-          github_token: "${{ secrets.GITHUB_TOKEN }}"
-      - name: Actions Ecosystem Remove Labels
-        uses: actions-ecosystem/action-remove-labels@v1.3.0
-        with:
-          labels: |
-            Changes Requested
-            Ready To Merge
